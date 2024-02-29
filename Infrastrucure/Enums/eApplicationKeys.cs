@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Infrastrucure.Enums
 {
+    /// <summary>
+    /// All Keys from application keys settings
+    /// </summary>
     public enum eApplicationKeys
     {
         myPrivateSettings1, myPrivateSettings2

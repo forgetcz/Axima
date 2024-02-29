@@ -15,7 +15,7 @@ namespace Infrastrucure.Interfaces
         string MyPrivateSettings2 { get; }
     }
 
-    public interface IConfigurationAppSettingsConfigurator
+    public interface IConfigurationAppSettingsReader     
     {
         IConfigurationAppSettings ReadConfigurationAppSettings();
     }

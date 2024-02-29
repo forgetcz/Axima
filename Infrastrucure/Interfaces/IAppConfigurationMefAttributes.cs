@@ -15,6 +15,6 @@ namespace Infrastrucure.Interfaces
         /// <summary>
         /// Type of app config : XML/JSON
         /// </summary>
-        eMefAttributes.eApplicationConfigurationType appConfigType { get; }
+        eApplicationConfigurationType appConfigType { get; }
     }
 }

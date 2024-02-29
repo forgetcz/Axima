@@ -1,15 +1,11 @@
-﻿using Domain.Interfaces;
-using Domain.Entities;
-using Infrastrucure.Configuration;
-using Infrastrucure.Repositories;
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using Infrastrucure.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using Infrastrucure.Interfaces;
 using System.ComponentModel.Composition;
+using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace WebApplication1.Controllers
 {

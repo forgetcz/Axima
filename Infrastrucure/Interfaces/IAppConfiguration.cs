@@ -1,4 +1,4 @@
-﻿using Infrastrucure.Configuration;
+﻿using Infrastrucure.Classes.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +12,6 @@ namespace Infrastrucure.Interfaces
     /// </summary>
     public interface IAppConfiguration
     {
-        configurationConnectionStrings ReadConnectionStrings();
+        ConfigurationConnectionStrings ReadConnectionStrings();
     }
 }

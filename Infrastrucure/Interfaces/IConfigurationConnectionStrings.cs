@@ -11,4 +11,9 @@ namespace Infrastrucure.Interfaces
         string mainConnectionString { get; }
         string secondConnectionString { get; }
     }
+
+    public interface IConfigurationConnectionStringsReader
+    {
+        IConfigurationConnectionStrings ReadConfigurationConnectionStrings();
+    }
 }

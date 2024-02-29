@@ -8,23 +8,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastrucure.Configuration
+namespace Infrastrucure.Classes.Configuration.XML
 {
-    public class XmlWebConfig 
+    /// <summary>
+    /// Configuration keys from config
+    /// </summary>
+    /// 
+    [ConfigurationAttributes(eApplicationConfigurationType.XML, eConfigurationSource.ConnectionStrings)]
+    public class XmlWebConfig : IConfigurationConnectionStringsReader
     {
         /// <summary>
         /// Read all connection strings from webconfig by XML configuration
         /// </summary>
         /// <returns></returns>
-        public configurationConnectionStrings ReadConnectionStrings()
+        public IConfigurationConnectionStrings ReadConfigurationConnectionStrings()
         {
             string mainConn = ConfigurationManager.ConnectionStrings[nameof(eSqlConnectionStrings.mainConn)].ConnectionString;
             string secondConn = ConfigurationManager.ConnectionStrings[nameof(eSqlConnectionStrings.secondConn)].ConnectionString;
 
-            var config = new configurationConnectionStrings(mainConn, secondConn);
+            var config = new ConfigurationConnectionStrings(mainConn, secondConn);
 
             return config;
-           
         }
     }
 }
