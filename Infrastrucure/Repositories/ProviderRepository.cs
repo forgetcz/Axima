@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Infrastrucure.Repositories
 {
-    public class ProviderRepository : IBaseRepository<Provider, long>
+    public class ProviderRepository : IBaseRepository<AcrtionProvider, long>
     {
         public SqlConnection _StoreContext;
 
@@ -17,7 +17,7 @@ namespace Infrastrucure.Repositories
         {
             _StoreContext = storeContext;
         }
-        public async Task<Provider> Delete(Provider entity)
+        public async Task<AcrtionProvider> Delete(AcrtionProvider entity)
         {
             using (SqlCommand cmd = new SqlCommand("deleteProvider", _StoreContext))
             {
@@ -28,7 +28,7 @@ namespace Infrastrucure.Repositories
             }
         }
 
-        public async Task<Provider> Insert(Provider entity)
+        public async Task<AcrtionProvider> Insert(AcrtionProvider entity)
         {
             using (SqlCommand cmd = new SqlCommand("deleteProvider", _StoreContext))
             {
@@ -39,33 +39,33 @@ namespace Infrastrucure.Repositories
             }
         }
 
-        public async Task<IEnumerable<Provider>> ReadAll()
+        public async Task<IEnumerable<AcrtionProvider>> ReadAll()
         {
             using (SqlCommand cmd = new SqlCommand("deleteProvider", _StoreContext))
             {
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 await cmd.ExecuteReaderAsync();
-                return new List<Provider>();
+                return new List<AcrtionProvider>();
             }
         }
 
-        public async Task<Provider> ReadById(long id)
+        public async Task<AcrtionProvider> ReadById(long id)
         {
             using (SqlCommand cmd = new SqlCommand("deleteProvider", _StoreContext))
             {
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 await cmd.ExecuteReaderAsync();
-                return new Provider(0, Domain.Enums.ProviderType.GoPay);
+                return new AcrtionProvider(0, Domain.Enums.eActionProviderType.GoPay);
             }
         }
 
-        public async Task<Provider> Update(Provider entity)
+        public async Task<AcrtionProvider> Update(AcrtionProvider entity)
         {
             using (SqlCommand cmd = new SqlCommand("deleteProvider", _StoreContext))
             {
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 await cmd.ExecuteReaderAsync();
-                return new Provider(0, Domain.Enums.ProviderType.GoPay);
+                return new AcrtionProvider(0, Domain.Enums.eActionProviderType.GoPay);
             }
         }
     }

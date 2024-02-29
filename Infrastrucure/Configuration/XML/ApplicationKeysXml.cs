@@ -3,7 +3,7 @@ using Infrastrucure.Interfaces;
 using System;
 using System.Configuration;
 
-namespace Infrastrucure.Classes.Configuration.XML
+namespace Infrastrucure.Configuration.XML
 {
     /// <summary>
     /// Application Keys from config

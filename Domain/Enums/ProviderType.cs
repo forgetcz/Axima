@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Domain.Enums
 {
-    public enum ProviderType
+    /// <summary>
+    /// Provider type four data
+    /// </summary>
+    public enum eActionProviderType
     {
         PayU, GoPay
     }

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastrucure.Classes.Configuration.JSON
+namespace Infrastrucure.Configuration.JSON
 {
     /// <summary>
     /// Configuration keys from config

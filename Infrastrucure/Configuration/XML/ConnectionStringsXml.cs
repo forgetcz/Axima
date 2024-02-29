@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastrucure.Classes.Configuration.XML
+namespace Infrastrucure.Configuration.XML
 {
     /// <summary>
     /// Configuration keys from config

@@ -3,7 +3,7 @@ using Infrastrucure.Interfaces;
 using System;
 using System.Configuration;
 
-namespace Infrastrucure.Classes.Configuration.JSON
+namespace Infrastrucure.Configuration.JSON
 {
     /// <summary>
     /// Application Keys from config

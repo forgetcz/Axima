@@ -6,12 +6,13 @@ namespace Domain.Entities
     /// <summary>
     /// Specific definition for Provider detail table items
     /// </summary>
-    public class Provider : BaseEntity
+    public class AcrtionProvider : BaseEntity
     {
-        public ProviderType ProviderType { get; set; }
+        public eActionProviderType ProviderType { get; set; }
 
-        public Provider(long id, ProviderType providerType): base(id)
+        public AcrtionProvider(long id, eActionProviderType providerType): base(id)
         {
+            Ensure
             this.ProviderType = providerType;
         }
     }

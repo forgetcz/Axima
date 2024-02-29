@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastrucure.Classes
+namespace Infrastrucure.Configuration
 {
     /// <summary>
     /// Metadata attribute for composition of application configuration

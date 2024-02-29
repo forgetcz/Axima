@@ -86,13 +86,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Configuration\MefConfigurationAttributes.cs" />
-    <Compile Include="Classes\Configuration\ConfigurationApplicationKeys.cs" />
-    <Compile Include="Classes\Configuration\JSON\ApplicationKeysJson.cs" />
-    <Compile Include="Classes\Configuration\XML\ApplicationKeysXml.cs" />
-    <Compile Include="Classes\Configuration\JSON\ConnectionStringsJson.cs" />
-    <Compile Include="Classes\Configuration\XML\ConnectionStringsXml.cs" />
-    <Compile Include="Classes\Configuration\ConfigurationConnectionStrings.cs" />
+    <Compile Include="Configuration\MefConfigurationAttributes.cs" />
+    <Compile Include="Configuration\ConfigurationApplicationKeys.cs" />
+    <Compile Include="Configuration\JSON\ApplicationKeysJson.cs" />
+    <Compile Include="Configuration\XML\ApplicationKeysXml.cs" />
+    <Compile Include="Configuration\JSON\ConnectionStringsJson.cs" />
+    <Compile Include="Configuration\XML\ConnectionStringsXml.cs" />
+    <Compile Include="Configuration\ConfigurationConnectionStrings.cs" />
     <Compile Include="Enums\eApplicationKeys.cs" />
     <Compile Include="Enums\eMefAttributes.cs" />
     <Compile Include="Enums\eSqlConnectionStrings.cs" />
@@ -118,6 +118,9 @@
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.VisualStudio.Composition.Analyzers.17.7.40\analyzers\dotnet\Microsoft.VisualStudio.Composition.Analyzers.dll" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Database\" />
+    <Folder Include="Extensions\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

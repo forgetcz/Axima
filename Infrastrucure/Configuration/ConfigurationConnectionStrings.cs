@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastrucure.Classes.Configuration
+namespace Infrastrucure.Configuration
 {
     /// <summary>
     /// Summary for all connection strings need in application

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastrucure.Classes.Configuration
+namespace Infrastrucure.Configuration
 {
     /// <summary>
     /// Definition of all keys from Application Keys
