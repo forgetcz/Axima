@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Common.Interfaces
+namespace Infrastrucure.Enums
 {
-    interface IApplicationDbContext
+    public static class mefAttributes
     {
-        
+        public enum appConfigType { JOSN, XML}
+
     }
 }

@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Config\readwebConfig.cs" />
     <Compile Include="Config\webConfigConnection.cs" />
+    <Compile Include="Enums\mefAttributes.cs" />
     <Compile Include="Enums\sqlConnectionStrings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ActionDetailRepository.cs" />

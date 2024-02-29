@@ -165,6 +165,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{e18d15aa-dba9-4b37-9e39-d7b775baee13}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infrastrucure\Infrastrucure.csproj">
       <Project>{764CEF32-03BE-41DB-9DB7-80387A9A5B76}</Project>
       <Name>Infrastrucure</Name>

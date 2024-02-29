@@ -12,10 +12,11 @@ namespace Infrastrucure.Config
     {
         public static webConfigConnection sqlConnectionStringConfiguration()
         {
-            return new webConfigConnection()
+            var config = new webConfigConnection()
             {
                 SqlConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings[nameof(sqlConnectionStrings.mainConn)].ConnectionString
             };
+            return config;
         }
     }
 }

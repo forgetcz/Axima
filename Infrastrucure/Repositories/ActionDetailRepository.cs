@@ -1,4 +1,4 @@
-﻿using Domain.Abstraction;
+﻿using Domain.Interfaces;
 using Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -55,9 +55,12 @@ namespace Infrastrucure.Repositories
         {
             using (SqlCommand cmd = new SqlCommand("ReadByIdAction", _StoreContext))
             {
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                await cmd.ExecuteReaderAsync();
-                return new ActionDetail(0, "", "", new DateTime());
+                if (!string.IsNullOrEmpty(_StoreContext.ConnectionString))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    await cmd.ExecuteReaderAsync();
+                }
+                return new ActionDetail(id, "", "", new DateTime());
             }
         }
 

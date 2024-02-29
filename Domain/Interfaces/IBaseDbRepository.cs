@@ -1,4 +1,4 @@
-﻿using Domain.Common;
+﻿using Domain.Abstraction;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,10 +6,10 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Abstraction
+namespace Domain.Interfaces
 {
     /// <summary>
-    /// Base definition for each respository action on database item
+    /// Base definition for each database respository action on database item
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <typeparam name="K"></typeparam>

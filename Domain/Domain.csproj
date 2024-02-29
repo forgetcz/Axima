@@ -41,9 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstraction\IBaseRepository.cs" />
-    <Compile Include="Abstraction\IBaseEntity.cs" />
-    <Compile Include="Common\BaseEntity.cs" />
+    <Compile Include="Interfaces\IBaseDbRepository.cs" />
+    <Compile Include="Interfaces\IBaseEntity.cs" />
+    <Compile Include="Abstraction\BaseEntity.cs" />
     <Compile Include="Entities\ActionDetail.cs" />
     <Compile Include="Entities\Provider.cs" />
     <Compile Include="Enums\ProviderType.cs" />

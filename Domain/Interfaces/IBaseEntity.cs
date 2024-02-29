@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Abstraction
+namespace Domain.Interfaces
 {
     /// <summary>
     /// Base definition for each Entity from database

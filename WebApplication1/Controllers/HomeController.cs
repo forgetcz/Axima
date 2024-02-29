@@ -1,21 +1,25 @@
-﻿using Infrastrucure.Config;
+﻿using Domain.Interfaces;
+using Domain.Entities;
+using Infrastrucure.Config;
 using Infrastrucure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
 namespace WebApplication1.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : AsyncController
     {
-        ActionDetailRepository actionDetailRepository;
+        IBaseRepository<ActionDetail, long>  actionDetailRepository;
 
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
             var connection = readwebConfig.sqlConnectionStringConfiguration();
-            actionDetailRepository = new ActionDetailRepository(new System.Data.SqlClient.SqlConnection(connection.SqlConnectionString));
+            actionDetailRepository = new ActionDetailRepository(new System.Data.SqlClient.SqlConnection());
+            await actionDetailRepository.ReadById(0);
             return View();
         }
 
