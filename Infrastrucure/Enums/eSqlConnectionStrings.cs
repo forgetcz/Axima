@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Infrastrucure.Enums
 {
-    public enum sqlConnectionStrings
+    /// <summary>
+    /// Enum defined names fpr sql connection strings
+    /// </summary>
+    public enum eSqlConnectionStrings
     { 
-        mainConn
+        mainConn, secondConn
     }
 }

@@ -362,4 +362,12 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-WebApplication1/Content
+ClassLibrary1
+ClassLibrary2
+Constats
+Extensions
+Content/
+fonts/
+Scripts/
+*.js
+

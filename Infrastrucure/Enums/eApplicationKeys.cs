@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastrucure.Config
+namespace Infrastrucure.Enums
 {
-    public class webConfigConnection
+    public enum eApplicationKeys
     {
-        public string SqlConnectionString { get;set; }
+        myPrivateSettings1, myPrivateSettings2
     }
 }
