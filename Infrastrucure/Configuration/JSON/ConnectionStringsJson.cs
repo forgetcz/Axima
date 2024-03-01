@@ -1,4 +1,5 @@
-﻿using Infrastrucure.Enums;
+﻿using Infrastrucure.Configuration.Test;
+using Infrastrucure.Enums;
 using Infrastrucure.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -13,14 +14,28 @@ namespace Infrastrucure.Configuration.JSON
     /// <summary>
     /// Configuration keys from config
     /// </summary>
-    [ConfigurationAttributes(eApplicationConfigurationType.JOSN, eConfigurationSource.ConnectionStrings)]
-    public class JsonlWebConfig : IConfigurationConnectionStringsReader
+    public class JsonlWebConfig : IConfigurationRepository
     {
+        /// <summary>
+        /// Memory storage for connection strings
+        /// </summary>
+        private SortedList<string, string> keysValues = new SortedList<string, string>();
+
+        /// <summary>
+        /// Get requested connection string form storage
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public string GetKeyValue(string key)
+        {
+            return keysValues[key];
+        }
+
         /// <summary>
         /// Read all connection strings from webconfig by XML configuration
         /// </summary>
         /// <returns></returns>
-        public IConfigurationConnectionStrings ReadConfigurationConnectionStrings()
+        public void LoadApplicationSection()
         {
             throw new NotImplementedException("JSON configuration is not implemeted here");
         }

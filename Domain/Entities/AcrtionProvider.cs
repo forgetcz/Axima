@@ -12,7 +12,6 @@ namespace Domain.Entities
 
         public AcrtionProvider(long id, eActionProviderType providerType): base(id)
         {
-            Ensure
             this.ProviderType = providerType;
         }
     }

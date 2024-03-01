@@ -1,5 +1,4 @@
-﻿using Domain.Entities;
-using Domain.Interfaces;
+﻿using Application.Configuration;
 using Infrastrucure.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -11,12 +10,8 @@ namespace WebApplication1.Controllers
 {
     public class HomeController : AsyncController
     {
-        [ImportMany(typeof(IAppConfiguration))]
-        private IEnumerable<Lazy<IAppConfiguration>> appconfigProviders { get; set; }
-        IAppConfiguration appConfiguration;
+        AppConfiguration appConfiguration = new AppConfiguration();
         
-        IBaseRepository<ActionDetail, long>  actionDetailRepository;
-
         public HomeController()
         {
 

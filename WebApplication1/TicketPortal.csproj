@@ -239,17 +239,17 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Domain\Domain.csproj">
-      <Project>{e18d15aa-dba9-4b37-9e39-d7b775baee13}</Project>
-      <Name>Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Infrastrucure\Infrastrucure.csproj">
-      <Project>{764CEF32-03BE-41DB-9DB7-80387A9A5B76}</Project>
-      <Name>Infrastrucure</Name>
-    </ProjectReference>
+    <Analyzer Include="..\packages\Microsoft.VisualStudio.Composition.Analyzers.17.7.40\analyzers\dotnet\Microsoft.VisualStudio.Composition.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="..\packages\Microsoft.VisualStudio.Composition.Analyzers.17.7.40\analyzers\dotnet\Microsoft.VisualStudio.Composition.Analyzers.dll" />
+    <ProjectReference Include="..\Application\Application.csproj">
+      <Project>{d791ff81-a9c4-4e84-b57e-63b21584daab}</Project>
+      <Name>Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastrucure\Infrastrucure.csproj">
+      <Project>{764cef32-03be-41db-9db7-80387a9a5b76}</Project>
+      <Name>Infrastrucure</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

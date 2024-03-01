@@ -1,4 +1,5 @@
-﻿using Infrastrucure.Enums;
+﻿using Infrastrucure.Configuration.Test;
+using Infrastrucure.Enums;
 using Infrastrucure.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -14,21 +15,35 @@ namespace Infrastrucure.Configuration.XML
     /// Configuration keys from config
     /// </summary>
     /// 
-    [ConfigurationAttributes(eApplicationConfigurationType.XML, eConfigurationSource.ConnectionStrings)]
-    public class XmlWebConfig : IConfigurationConnectionStringsReader
+    [Test.ConfigurationRepositoryExportAttributes(eApplicationConfigurationRepositoryType.XML, eApplicationConfigurationRepositorySection.ConnectionStrings)]
+    public class XmlWebConfig : IConfigurationRepository
     {
+        /// <summary>
+        /// Memory storage for connection strings
+        /// </summary>
+        private SortedList<string, string> keysValues = new SortedList<string, string>();
+
+        /// <summary>
+        /// Get requested connection string form storage
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public string GetKeyValue(string key)
+        {
+            return keysValues[key];
+        }
+
         /// <summary>
         /// Read all connection strings from webconfig by XML configuration
         /// </summary>
         /// <returns></returns>
-        public IConfigurationConnectionStrings ReadConfigurationConnectionStrings()
+        public void LoadApplicationSection() 
         {
             string mainConn = ConfigurationManager.ConnectionStrings[nameof(eSqlConnectionStrings.mainConn)].ConnectionString;
             string secondConn = ConfigurationManager.ConnectionStrings[nameof(eSqlConnectionStrings.secondConn)].ConnectionString;
 
-            var config = new ConfigurationConnectionStrings(mainConn, secondConn);
-
-            return config;
+            keysValues.Add(nameof(eSqlConnectionStrings.mainConn), mainConn);
+            keysValues.Add(nameof(eSqlConnectionStrings.secondConn), secondConn);
         }
     }
 }

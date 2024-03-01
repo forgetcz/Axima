@@ -14,16 +14,23 @@ namespace Infrastrucure.Configuration
     /// </summary>
     [MetadataAttribute]
     [AttributeUsage(AttributeTargets.Class)]
-    public class ConfigurationAttributes : ExportAttribute, IConfigurationMetadata
+    public class ConfigurationAttributes : ExportAttribute, IApplicationConfigurationMetadata
     {
-        public eApplicationConfigurationType ConfigurationType { get; }
+        /// <summary>
+        /// JSON/XML
+        /// </summary>
+        public eApplicationConfigurationRepositoryType ConfigurationType { get; set; }
 
-        public eConfigurationSource ConfigurationSource { get; }
+        /// <summary>
+        /// AppKeys, ConnectionStrings
+        /// </summary>
+        public eApplicationConfigurationRepositorySection ConfigurationSource { get; set; }
 
-        public ConfigurationAttributes(eApplicationConfigurationType configurationType, eConfigurationSource configurationSource)
+        public ConfigurationAttributes(eApplicationConfigurationRepositoryType configurationType, eApplicationConfigurationRepositorySection configurationSource)
+           // : base(typeof(IApplicationConfigurationMethods))
         {
-            this.ConfigurationType = configurationType;
-            this.ConfigurationSource = configurationSource;
+            ConfigurationType = configurationType;
+            ConfigurationSource = configurationSource;
         }
     }
 }

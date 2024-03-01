@@ -9,7 +9,11 @@ namespace Infrastrucure.Enums
     /// <summary>
     /// Attributes definition for App config type (JOSN, XML)
     /// </summary>
-    public enum eApplicationConfigurationType { JOSN, XML }
+    public enum eApplicationConfigurationRepositoryType { JSON, XML }
 
-    public enum eConfigurationSource { AppKeys, ConnectionStrings}
+    /// <summary>
+    /// Attributes definition for App config section AppKeys, ConnectionStrings
+    /// </summary>
+    public enum eApplicationConfigurationRepositorySection { AppKeys, ConnectionStrings}
+
 }

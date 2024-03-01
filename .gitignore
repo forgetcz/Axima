@@ -367,7 +367,10 @@ ClassLibrary2
 Constats
 Extensions
 Content/
-fonts/
+WebApplication1/Scripts/
 Scripts/
 *.js
+TestMef/
+ConsoleApp1/
+
 

@@ -10,11 +10,13 @@ namespace Infrastrucure.Interfaces
     /// <summary>
     /// Definition of methods using for meta data attributes 
     /// </summary>
-    interface IAppConfigurationMefAttributes
+    public interface IAppConfigurationMefAttributes
     {
         /// <summary>
         /// Type of app config : XML/JSON
         /// </summary>
-        eApplicationConfigurationType appConfigType { get; }
+        eApplicationConfigurationRepositoryType AppConfigType { get; }
+
+        eApplicationConfigurationRepositorySection AppConfigSection { get; }
     }
 }
