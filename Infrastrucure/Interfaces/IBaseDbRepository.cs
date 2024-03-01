@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Interfaces
+namespace Infrastrucure.Interfaces
 {
     /// <summary>
     /// Base definition for each database respository action on database item

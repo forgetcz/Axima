@@ -7,10 +7,11 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Infrastrucure.Interfaces;
 
-namespace Infrastrucure.Repositories
+namespace Infrastrucure.Data.Repositories.SqlStoredProcedures
 {
-    public class ActionDetailRepository : IBaseRepository<ActionDetail, long>
+    public class ActionDetailRepository : IBaseDbRepository<ActionDetail, long>
     {
         public SqlConnection _StoreContext;
 

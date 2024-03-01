@@ -1,5 +1,4 @@
-﻿using Infrastrucure.Configuration.Test;
-using Infrastrucure.Enums;
+﻿using Infrastrucure.Enums;
 using Infrastrucure.Interfaces;
 using System;
 using System.Collections;
@@ -13,7 +12,7 @@ namespace Infrastrucure.Configuration.XML
     /// Application Keys from config
     /// </summary>
     /// 
-    [Test.ConfigurationRepositoryExportAttributes(eApplicationConfigurationRepositoryType.XML, eApplicationConfigurationRepositorySection.AppKeys)]
+    [ConfigurationRepositoryExportAttributes(eApplicationConfigurationRepositoryType.XML, eApplicationConfigurationRepositorySection.AppKeys)]
     public class ApplicationKeysXml : IConfigurationRepository
     {
         /// <summary>

@@ -1,5 +1,4 @@
-﻿using Infrastrucure.Configuration.Test;
-using Infrastrucure.Enums;
+﻿using Infrastrucure.Enums;
 using Infrastrucure.Interfaces;
 using System;
 using System.Collections.Generic;

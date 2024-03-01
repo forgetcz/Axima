@@ -1,5 +1,4 @@
-﻿using Infrastrucure.Configuration.Test;
-using Infrastrucure.Enums;
+﻿using Infrastrucure.Enums;
 using Infrastrucure.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -15,7 +14,7 @@ namespace Infrastrucure.Configuration.XML
     /// Configuration keys from config
     /// </summary>
     /// 
-    [Test.ConfigurationRepositoryExportAttributes(eApplicationConfigurationRepositoryType.XML, eApplicationConfigurationRepositorySection.ConnectionStrings)]
+    [ConfigurationRepositoryExportAttributes(eApplicationConfigurationRepositoryType.XML, eApplicationConfigurationRepositorySection.ConnectionStrings)]
     public class XmlWebConfig : IConfigurationRepository
     {
         /// <summary>

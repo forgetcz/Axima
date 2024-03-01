@@ -16,4 +16,8 @@ namespace Infrastrucure.Enums
     /// </summary>
     public enum eApplicationConfigurationRepositorySection { AppKeys, ConnectionStrings}
 
+    /// <summary>
+    /// Definition of database source repository (SQL, FireBird, FileSystem, Mongo,... 
+    /// </summary>
+    public enum eDomainSourceRepositoryType { SQL, FireBird, FileSystem, Mongo }
 }

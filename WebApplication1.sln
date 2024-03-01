@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.34601.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketPortal", "WebApplication1\TicketPortal.csproj", "{CFE5D0D9-6851-4AD1-8276-557E5EA7D1C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRD API", "WebApplication1\CRD API.csproj", "{CFE5D0D9-6851-4AD1-8276-557E5EA7D1C1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{E18D15AA-DBA9-4B37-9E39-D7B775BAEE13}"
 EndProject
@@ -34,6 +34,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMef", "TestMef\TestMef.csproj", "{A097FB0C-2FD1-4FE8-9CFF-B49A9AE23A81}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{CDD11B05-46AA-4690-984A-505612174EAB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{A61E2CD2-EA71-45AF-8A61-DA1F5B51CB33}"
+	ProjectSection(SolutionItems) = preProject
+		CRD.txt = CRD.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

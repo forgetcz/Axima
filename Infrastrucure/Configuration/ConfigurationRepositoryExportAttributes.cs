@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastrucure.Configuration.Test
+namespace Infrastrucure.Configuration
 {
     [MetadataAttribute]
     [AttributeUsage(AttributeTargets.Class)]

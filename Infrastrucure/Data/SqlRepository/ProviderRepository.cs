@@ -6,10 +6,11 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Infrastrucure.Interfaces;
 
-namespace Infrastrucure.Repositories
+namespace Infrastrucure.Data.Repositories.SqlStoredProcedures
 {
-    public class ProviderRepository : IBaseRepository<AcrtionProvider, long>
+    public class ProviderRepository : IBaseDbRepository<AcrtionProvider, long>
     {
         public SqlConnection _StoreContext;
 
