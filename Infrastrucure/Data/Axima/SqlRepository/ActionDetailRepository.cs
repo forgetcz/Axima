@@ -9,18 +9,64 @@ using System.Text;
 using System.Threading.Tasks;
 using Infrastrucure.Interfaces;
 using Domain.Entities.Axima;
+using Infrastrucure.Enums;
+using System.ComponentModel.Composition;
 
-namespace Infrastrucure.Data.Repositories.SqlStoredProcedures
+namespace Infrastrucure.Data.Axima.SqlRepository
 {
-    public class ActionDetailRepository //: IBaseDbRepository<ActionDetail, long>
+    //[Export(typeof(IBaseDbRepository<ActionDetail, Guid>))]
+    [ExportMetadata(nameof(eMefAttribute.exportedTpe), typeof(ActionDetail))]
+    [ExportMetadata(nameof(eMefAttribute.repositoryType), Enums.eDomainSourceRepositoryType.SQL)]
+    public class ActionDetailRepository : IBaseDbRepository<ActionDetail, Guid>
     {
         public SqlConnection _StoreContext;
 
-        public ActionDetailRepository(SqlConnection storeContext)
+        public ActionDetailRepository([Import("connectionString")] string connectionString)
         {
-            _StoreContext = storeContext;
+            _StoreContext = new SqlConnection(connectionString);
         }
 
+        public Task<ActionDetail> Delete(ActionDetail entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task DeleteMany(IEnumerable<ActionDetail> entities)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ActionDetail> Insert(ActionDetail entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<ActionDetail>> InsertMany(IEnumerable<ActionDetail> entities)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<ActionDetail>> ReadAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ActionDetail> ReadById(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ActionDetail> Update(ActionDetail entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<ActionDetail>> UpdateMany(IEnumerable<ActionDetail> entities)
+        {
+            throw new NotImplementedException();
+        }
+
+        /*
         public async Task<ActionDetail> Delete(ActionDetail entity)
         {
             using (SqlCommand cmd = new SqlCommand("deleteAction", _StoreContext))
@@ -62,7 +108,7 @@ namespace Infrastrucure.Data.Repositories.SqlStoredProcedures
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     await cmd.ExecuteReaderAsync();
                 }
-                return new ActionDetail(null, "", "", new DateTime());
+                return new ActionDetail(default, "", "", new DateTime());
             }
         }
 
@@ -72,8 +118,9 @@ namespace Infrastrucure.Data.Repositories.SqlStoredProcedures
             {
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 await cmd.ExecuteReaderAsync();
-                return new ActionDetail(null, "", "", new DateTime());
+                return new ActionDetail(default, "", "", new DateTime());
             }
         }
+        */
     }
 }

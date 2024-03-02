@@ -2,6 +2,7 @@
 using Application.Interfaces;
 using Domain.Abstraction;
 using Domain.Entities;
+using Domain.Entities.Axima;
 using Domain.Entities.Crd;
 using Infrastrucure.Enums;
 using Infrastrucure.Interfaces; 
@@ -28,7 +29,7 @@ namespace Application.Configuration
         private static object lockObject = new object();
 
         [ImportMany(typeof(IBaseDbRepository<,>))]
-        private IEnumerable<Lazy<IBaseDbRepository<CrdData, long>, Dictionary<string, object>>> Repositorys { get; set; }
+        private IEnumerable<Lazy<IBaseDbRepository<CrdData, long>, Dictionary<string, object>>> CrdRepositorys { get; set; }
 
         /// <summary>
         /// Connection strings
@@ -47,7 +48,7 @@ namespace Application.Configuration
         }
         */
         /// <summary>
-        /// Compose configuration from definned assembly
+        /// Double composition, first for add Compose configuration from definned assembly
         /// </summary>
         private void ComposeConfiguraion()
         {
@@ -57,9 +58,15 @@ namespace Application.Configuration
 
             ComposeApplication.Container.ComposeExportedValue("connectionString", mainConnectionString);
             ComposeApplication.Container.ComposeParts(this);
-            Repositorys.ToList().ForEach(f =>
+
+            ActionDetailRepositorys.ToList().ForEach(f =>
             {
-                f.Value.ReadById(0);
+                var r = f.Value.GetType(); ;
+                Debug.WriteLine(f.Metadata);
+            });
+            CrdRepositorys.ToList().ForEach(f =>
+            {
+                var r = f.Value.ReadById(0).Result;
                 Debug.WriteLine(f.Metadata);
             });
         }
@@ -76,7 +83,7 @@ namespace Application.Configuration
                     if (PermanentRepositorys == null)
                     {
                         ComposeConfiguraion();
-                        Repositorys.ToList().ForEach(fe =>
+                        CrdRepositorys.ToList().ForEach(fe =>
                         {
                             var f = fe.Value;
                             //f.ReadById(0);

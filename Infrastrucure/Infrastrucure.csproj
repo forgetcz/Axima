@@ -86,12 +86,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstraction\AbstractMemoryRepository.cs" />
+    <Compile Include="Classes\MemoryRepository.cs" />
     <Compile Include="Configuration\ConfigurationRepositoryExportAttributes.cs" />
     <Compile Include="Configuration\JSON\ApplicationKeysJson.cs" />
     <Compile Include="Configuration\XML\ApplicationKeysXml.cs" />
     <Compile Include="Configuration\JSON\ConnectionStringsJson.cs" />
     <Compile Include="Configuration\XML\ConnectionStringsXml.cs" />
+    <Compile Include="Data\Axima\MemoryRepository\ProviderRepository.cs" />
+    <Compile Include="Data\Axima\MemoryRepository\ActionDetailRepository.cs" />
     <Compile Include="Data\Crd\SqlRepository\CrdDataRpository.cs" />
     <Compile Include="Data\Crd\MemoryRepository\CrdDataRpository.cs" />
     <Compile Include="Enums\eApplicationKeys.cs" />

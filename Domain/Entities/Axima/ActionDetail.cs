@@ -10,13 +10,13 @@ namespace Domain.Entities.Axima
     /// <summary>
     /// Specific definition for action detail table items
     /// </summary>
-    public class ActionDetail : BaseEntity<string>
+    public class ActionDetail : BaseEntity<Guid>
     {
         public string ActionName { get; set; }
         public string ActionPlace { get; set; }
         public DateTime ActionDate { get; set; }
 
-        public ActionDetail(string id, string actionName, string actionPlace, DateTime actionDate) : base(id)
+        public ActionDetail(Guid id, string actionName, string actionPlace, DateTime actionDate) : base(id)
         {
             ActionName = actionName;
             ActionPlace = actionPlace;

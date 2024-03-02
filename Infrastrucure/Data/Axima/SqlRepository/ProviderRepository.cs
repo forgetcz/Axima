@@ -8,17 +8,65 @@ using System.Text;
 using System.Threading.Tasks;
 using Infrastrucure.Interfaces;
 using Domain.Entities.Axima;
+using System.ComponentModel.Composition;
+using Infrastrucure.Enums;
 
-namespace Infrastrucure.Data.Repositories.SqlStoredProcedures
+namespace Infrastrucure.Data.Axima.SqlRepository
 {
-    public class ProviderRepository //: IBaseDbRepository<AcrtionProvider, long>
+    //[Export(typeof(IBaseDbRepository<ActionProvider, Guid>))]
+    [ExportMetadata(nameof(eMefAttribute.exportedTpe), typeof(ActionProvider))]
+    [ExportMetadata(nameof(eMefAttribute.repositoryType), Enums.eDomainSourceRepositoryType.SQL)]
+    public class ProviderRepository : IBaseDbRepository<ActionProvider, Guid>
     {
         public SqlConnection _StoreContext;
 
-        public ProviderRepository(SqlConnection storeContext)
+        [ImportingConstructor]
+        public ProviderRepository([Import("connectionString")] string connectionString)
         {
-            _StoreContext = storeContext;
+            _StoreContext = new SqlConnection(connectionString);
         }
+
+        public Task<ActionProvider> Delete(ActionProvider entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task DeleteMany(IEnumerable<ActionProvider> entities)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ActionProvider> Insert(ActionProvider entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<ActionProvider>> InsertMany(IEnumerable<ActionProvider> entities)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<ActionProvider>> ReadAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ActionProvider> ReadById(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ActionProvider> Update(ActionProvider entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<ActionProvider>> UpdateMany(IEnumerable<ActionProvider> entities)
+        {
+            throw new NotImplementedException();
+        }
+
+        /*
         public async Task<AcrtionProvider> Delete(AcrtionProvider entity)
         {
             using (SqlCommand cmd = new SqlCommand("deleteProvider", _StoreContext))
@@ -57,7 +105,7 @@ namespace Infrastrucure.Data.Repositories.SqlStoredProcedures
             {
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 await cmd.ExecuteReaderAsync();
-                return new AcrtionProvider("", Domain.Enums.eActionProviderType.GoPay);
+                return new AcrtionProvider(default, Domain.Enums.eActionProviderType.GoPay);
             }
         }
 
@@ -67,8 +115,9 @@ namespace Infrastrucure.Data.Repositories.SqlStoredProcedures
             {
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 await cmd.ExecuteReaderAsync();
-                return new AcrtionProvider("", Domain.Enums.eActionProviderType.GoPay);
+                return new AcrtionProvider(default, Domain.Enums.eActionProviderType.GoPay);
             }
         }
+        */
     }
 }
