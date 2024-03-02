@@ -15,8 +15,8 @@ namespace Application.Configuration
     /// <summary>
     /// Full application configuration
     /// </summary>
-    [Export(typeof(IAppConfigurationConfiguration))]
-    public class AppConfiguration : IAppConfigurationConfiguration
+    [Export(typeof(IAppConfiguration))]
+    public class AppConfiguration : IAppConfiguration
     {
         /// <summary>
         /// Definition of current config type (XML for old project (.NET Framework), JSON for .NET(old CORE))

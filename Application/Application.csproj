@@ -88,7 +88,8 @@
     <Compile Include="Composition\ComposeApplication.cs" />
     <Compile Include="Configuration\AppConfiguration.cs" />
     <Compile Include="Data\DataRepository.cs" />
-    <Compile Include="Interfaces\IAppConfigurationConfiguration.cs" />
+    <Compile Include="Interfaces\IDataRepository.cs" />
+    <Compile Include="Interfaces\IAppConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

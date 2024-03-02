@@ -21,15 +21,17 @@ namespace Application.Configuration
     /// </summary>
     public class DataRepository
     {
-        [Import(typeof(IAppConfigurationConfiguration))]
-        private IAppConfigurationConfiguration AppConfig { get; set; }
+        [Import(typeof(IAppConfiguration))]
+        private IAppConfiguration AppConfig { get; set; }
 
         private static IEnumerable<Lazy<IBaseDbRepository<CrdData, long>>> PermanentRepositorys { get; set; }
 
         private static object lockObject = new object();
 
+        //[Export(typeof(IBaseDbRepository<,>))]
         [ImportMany(typeof(IBaseDbRepository<,>))]
-        private IEnumerable<Lazy<IBaseDbRepository<CrdData, long>, Dictionary<string, object>>> CrdRepositorys { get; set; }
+        private IEnumerable<Lazy<IBaseDbRepository<CrdData, long>, Dictionary<string, object>>> _crdRepositorys { get; set; }
+
 
         /// <summary>
         /// Connection strings
@@ -48,7 +50,7 @@ namespace Application.Configuration
         }
         */
         /// <summary>
-        /// Double composition, first for add Compose configuration from definned assembly
+        /// Double composition, first for add AppConfig, second for compose rest of (add connection string for database) assembly 
         /// </summary>
         private void ComposeConfiguraion()
         {
@@ -59,12 +61,8 @@ namespace Application.Configuration
             ComposeApplication.Container.ComposeExportedValue("connectionString", mainConnectionString);
             ComposeApplication.Container.ComposeParts(this);
 
-            ActionDetailRepositorys.ToList().ForEach(f =>
-            {
-                var r = f.Value.GetType(); ;
-                Debug.WriteLine(f.Metadata);
-            });
-            CrdRepositorys.ToList().ForEach(f =>
+            var crd = _crdRepositorys.ToList();
+            crd.ForEach(f =>
             {
                 var r = f.Value.ReadById(0).Result;
                 Debug.WriteLine(f.Metadata);
@@ -83,7 +81,7 @@ namespace Application.Configuration
                     if (PermanentRepositorys == null)
                     {
                         ComposeConfiguraion();
-                        CrdRepositorys.ToList().ForEach(fe =>
+                        _crdRepositorys.ToList().ForEach(fe =>
                         {
                             var f = fe.Value;
                             //f.ReadById(0);

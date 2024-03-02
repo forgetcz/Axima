@@ -10,9 +10,8 @@ namespace Application.Interfaces
     /// <summary>
     /// Definition of application configuration
     /// </summary>
-    public interface IAppConfigurationConfiguration
+    public interface IDataRepository
     {
-        IConfigurationRepository ConnectionStrings { get; }
-        IConfigurationRepository ApplicationKeys { get; }
+        
     }
 }
