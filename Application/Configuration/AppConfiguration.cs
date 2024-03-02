@@ -1,4 +1,6 @@
-﻿using Infrastrucure.Interfaces; 
+﻿using Application.Composition;
+using Application.Interfaces;
+using Infrastrucure.Interfaces; 
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
@@ -13,7 +15,8 @@ namespace Application.Configuration
     /// <summary>
     /// Full application configuration
     /// </summary>
-    public class AppConfiguration
+    [Export(typeof(IAppConfigurationConfiguration))]
+    public class AppConfiguration : IAppConfigurationConfiguration
     {
         /// <summary>
         /// Definition of current config type (XML for old project (.NET Framework), JSON for .NET(old CORE))
@@ -74,20 +77,6 @@ namespace Application.Configuration
         }
 
         /// <summary>
-        /// Compose configuration from definned assembly
-        /// </summary>
-        private CompositionContainer ComposeConfiguraion()
-        {
-            var InfrastrucureCatalog = new DirectoryCatalog(AppDomain.CurrentDomain.BaseDirectory + "bin\\", "Infrastrucure.dll");
-            var DomainCatalog = new DirectoryCatalog(AppDomain.CurrentDomain.BaseDirectory + "bin\\", "Domain.dll");
-            var ApplicationCatalog = new DirectoryCatalog(AppDomain.CurrentDomain.BaseDirectory + "bin\\", "Application.dll");
-            var aggregateCatalog = new AggregateCatalog { Catalogs = { InfrastrucureCatalog, DomainCatalog, ApplicationCatalog } };
-            var container = new CompositionContainer(aggregateCatalog);
-            container.ComposeParts(this);
-            return container;
-        }
-
-        /// <summary>
         /// Compose application in case it is not composed yet. Use double lock pattern for single composition
         /// </summary>
         public AppConfiguration()
@@ -98,7 +87,7 @@ namespace Application.Configuration
                 {
                     if (ProvidersPermanent == null)
                     {
-                        ComposeConfiguraion();
+                        ComposeApplication.Container.SatisfyImportsOnce(this);
                         ProvidersPermanent = Providers;
                         Providers.ToList().ForEach(fe =>
                         {

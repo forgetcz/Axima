@@ -5,17 +5,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.Composition;
 
 namespace Domain.Abstraction
 {
     /// <summary>
     /// Base (core) database entity definition
     /// </summary>
-    public abstract class BaseEntity : IBaseEntity
+    
+    public abstract class BaseEntity<T> : IBaseEntity<T>
     {
-        public long Id { get; set; }
+        public T Id { get; set; }
 
-        public BaseEntity(long id)
+        public BaseEntity(T id)
         {
             Id = id;
         }

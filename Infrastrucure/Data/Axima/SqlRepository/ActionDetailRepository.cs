@@ -8,10 +8,11 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Infrastrucure.Interfaces;
+using Domain.Entities.Axima;
 
 namespace Infrastrucure.Data.Repositories.SqlStoredProcedures
 {
-    public class ActionDetailRepository : IBaseDbRepository<ActionDetail, long>
+    public class ActionDetailRepository //: IBaseDbRepository<ActionDetail, long>
     {
         public SqlConnection _StoreContext;
 
@@ -61,7 +62,7 @@ namespace Infrastrucure.Data.Repositories.SqlStoredProcedures
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     await cmd.ExecuteReaderAsync();
                 }
-                return new ActionDetail(id, "", "", new DateTime());
+                return new ActionDetail(null, "", "", new DateTime());
             }
         }
 
@@ -71,7 +72,7 @@ namespace Infrastrucure.Data.Repositories.SqlStoredProcedures
             {
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 await cmd.ExecuteReaderAsync();
-                return new ActionDetail(0, "", "", new DateTime());
+                return new ActionDetail(null, "", "", new DateTime());
             }
         }
     }

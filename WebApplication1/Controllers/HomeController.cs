@@ -11,7 +11,7 @@ namespace WebApplication1.Controllers
     public class HomeController : AsyncController
     {
         DataRepository dataRepository = new DataRepository();
-        AppConfiguration appConfiguration = new AppConfiguration();
+        //AppConfiguration appConfiguration = new AppConfiguration();
         
         public HomeController()
         {

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace Domain.Entities.Crd
 {
-    public class CrdData : BaseEntity
+    public class CrdData : BaseEntity<long>
     {
         public string caller_id { get; set; }
         public string recipient { get; set; }

@@ -85,11 +85,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\CrdData.cs" />
+    <Compile Include="Entities\Crd\CrdData.cs" />
     <Compile Include="Interfaces\IBaseEntity.cs" />
     <Compile Include="Abstraction\BaseEntity.cs" />
-    <Compile Include="Entities\ActionDetail.cs" />
-    <Compile Include="Entities\AcrtionProvider.cs" />
+    <Compile Include="Entities\Axima\ActionDetail.cs" />
+    <Compile Include="Entities\Axima\AcrtionProvider.cs" />
     <Compile Include="Enums\ProviderType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

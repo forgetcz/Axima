@@ -19,5 +19,7 @@ namespace Infrastrucure.Enums
     /// <summary>
     /// Definition of database source repository (SQL, FireBird, FileSystem, Mongo,... 
     /// </summary>
-    public enum eDomainSourceRepositoryType { SQL, FireBird, FileSystem, Mongo }
+    public enum eDomainSourceRepositoryType { SQL, FireBird, FileSystem, Mongo, Memory }
+
+    public enum eMefAttribute { exportedTpe, repositoryType }
 }

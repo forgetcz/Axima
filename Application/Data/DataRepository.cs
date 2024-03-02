@@ -1,10 +1,16 @@
-﻿using Domain.Abstraction;
+﻿using Application.Composition;
+using Application.Interfaces;
+using Domain.Abstraction;
+using Domain.Entities;
+using Domain.Entities.Crd;
 using Infrastrucure.Enums;
 using Infrastrucure.Interfaces; 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Application.Configuration
@@ -14,19 +20,20 @@ namespace Application.Configuration
     /// </summary>
     public class DataRepository
     {
-        private Infrastrucure.Enums.eDomainSourceRepositoryType DomainSourceRepositoryType => Infrastrucure.Enums.eDomainSourceRepositoryType.SQL;
+        [Import(typeof(IAppConfigurationConfiguration))]
+        private IAppConfigurationConfiguration AppConfig { get; set; }
 
-        private static IEnumerable<Lazy<IBaseDbRepository<BaseEntity, long>, IDataRepositoryMefAttributes>> PermanentRepositorys { get; set; }
+        private static IEnumerable<Lazy<IBaseDbRepository<CrdData, long>>> PermanentRepositorys { get; set; }
 
         private static object lockObject = new object();
 
-        [ImportMany(typeof(IBaseDbRepository<BaseEntity, long>))]
-        private IEnumerable<Lazy<IBaseDbRepository<BaseEntity, long>, IDataRepositoryMefAttributes>> Repositorys { get; set; }
+        [ImportMany(typeof(IBaseDbRepository<,>))]
+        private IEnumerable<Lazy<IBaseDbRepository<CrdData, long>, Dictionary<string, object>>> Repositorys { get; set; }
 
         /// <summary>
         /// Connection strings
         /// </summary>
-        private IBaseDbRepository<BaseEntity, long> _databseRepository;
+        /*private IBaseDbRepository<BaseEntity, long> _databseRepository;
         private IBaseDbRepository<BaseEntity, long> DatabseRepository
         {
             get
@@ -38,24 +45,25 @@ namespace Application.Configuration
                 return _databseRepository;
             }
         }
-
+        */
         /// <summary>
         /// Compose configuration from definned assembly
         /// </summary>
         private void ComposeConfiguraion()
         {
-            AppConfiguration appConfiguration = new AppConfiguration();
+            ComposeApplication.Container.SatisfyImportsOnce(this);
 
-            var InfrastrucureCatalog = new DirectoryCatalog(AppDomain.CurrentDomain.BaseDirectory + "bin\\", "Infrastrucure.dll");
-            var DomainCatalog = new DirectoryCatalog(AppDomain.CurrentDomain.BaseDirectory + "bin\\", "Domain.dll");
-            var ApplicationCatalog = new DirectoryCatalog(AppDomain.CurrentDomain.BaseDirectory + "bin\\", "Application.dll");
-            var aggregateCatalog = new AggregateCatalog { Catalogs = { InfrastrucureCatalog, DomainCatalog, ApplicationCatalog } };
-            var container = new CompositionContainer(aggregateCatalog);
-            string mainConnectionString = appConfiguration.ConnectionStrings.GetKeyValue(eSqlConnectionStrings.mainConn.ToString());
-            container.ComposeExportedValue("connectionString", mainConnectionString);
-            container.ComposeParts(this);
+            string mainConnectionString = AppConfig.ConnectionStrings.GetKeyValue(eSqlConnectionStrings.mainConn.ToString());
+
+            ComposeApplication.Container.ComposeExportedValue("connectionString", mainConnectionString);
+            ComposeApplication.Container.ComposeParts(this);
+            Repositorys.ToList().ForEach(f =>
+            {
+                f.Value.ReadById(0);
+                Debug.WriteLine(f.Metadata);
+            });
         }
-
+        
         /// <summary>
         /// Compose application in case it is not composed yet. Use double lock pattern for single creation
         /// </summary>
@@ -70,14 +78,15 @@ namespace Application.Configuration
                         ComposeConfiguraion();
                         Repositorys.ToList().ForEach(fe =>
                         {
-                            fe.Value.ReadAll();
+                            var f = fe.Value;
+                            //f.ReadById(0);
                         }
                         );
-                        PermanentRepositorys = Repositorys;
+                        //PermanentRepositorys = Repositorys;
                     }
                     else
                     {
-                        Repositorys = PermanentRepositorys;
+                        //Repositorys = PermanentRepositorys;
                     }
                 }
             }

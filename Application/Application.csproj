@@ -85,8 +85,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Composition\ComposeApplication.cs" />
     <Compile Include="Configuration\AppConfiguration.cs" />
     <Compile Include="Data\DataRepository.cs" />
+    <Compile Include="Interfaces\IAppConfigurationConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

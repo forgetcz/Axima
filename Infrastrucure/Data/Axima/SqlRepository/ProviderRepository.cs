@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Infrastrucure.Interfaces;
+using Domain.Entities.Axima;
 
 namespace Infrastrucure.Data.Repositories.SqlStoredProcedures
 {
-    public class ProviderRepository : IBaseDbRepository<AcrtionProvider, long>
+    public class ProviderRepository //: IBaseDbRepository<AcrtionProvider, long>
     {
         public SqlConnection _StoreContext;
 
@@ -56,7 +57,7 @@ namespace Infrastrucure.Data.Repositories.SqlStoredProcedures
             {
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 await cmd.ExecuteReaderAsync();
-                return new AcrtionProvider(0, Domain.Enums.eActionProviderType.GoPay);
+                return new AcrtionProvider("", Domain.Enums.eActionProviderType.GoPay);
             }
         }
 
@@ -66,7 +67,7 @@ namespace Infrastrucure.Data.Repositories.SqlStoredProcedures
             {
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 await cmd.ExecuteReaderAsync();
-                return new AcrtionProvider(0, Domain.Enums.eActionProviderType.GoPay);
+                return new AcrtionProvider("", Domain.Enums.eActionProviderType.GoPay);
             }
         }
     }

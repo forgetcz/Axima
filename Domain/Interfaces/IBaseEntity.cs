@@ -9,8 +9,8 @@ namespace Domain.Interfaces
     /// <summary>
     /// Base definition for each Entity from database
     /// </summary>
-    interface IBaseEntity
+    interface IBaseEntity<T>
     {
-        long Id { get; set; }
+        T Id { get; set; }
     }
 }
