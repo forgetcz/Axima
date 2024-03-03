@@ -1,4 +1,7 @@
-﻿using Application.Configuration;
+﻿using Application.Composition;
+using Application.Configuration;
+using Application.Data;
+using Application.Interfaces;
 using Infrastrucure.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -10,19 +13,19 @@ namespace WebApplication1.Controllers
 {
     public class HomeController : AsyncController
     {
-        DataRepository dataRepository = new DataRepository();
-        //AppConfiguration appConfiguration = new AppConfiguration();
+        //CrdDataRepository dataRepository = new CrdDataRepository();
+        
+        [Import(typeof(IDataService))]
+        public IDataService dataRepository { get; set; }
         
         public HomeController()
         {
-
+            ComposeApplication.Container.SatisfyImportsOnce(this);
         }
 
         public async Task<ActionResult> Index()
         {
-            //var connection = xmlWebConfig.sqlConnectionStringConfiguration();
-            //actionDetailRepository = new ActionDetailRepository(new System.Data.SqlClient.SqlConnection());
-            //await actionDetailRepository.ReadById(0);
+            
             return View();
         }
 

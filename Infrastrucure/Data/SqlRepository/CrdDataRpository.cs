@@ -1,22 +1,17 @@
-﻿using Domain.Abstraction;
-using Domain.Entities;
-using Domain.Entities.Crd;
-using Infrastrucure.Configuration;
+﻿using Domain.Entities;
 using Infrastrucure.Enums;
 using Infrastrucure.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastrucure.Data.Crd.SqlRepository
+namespace Infrastrucure.Data.SqlRepository
 {
     //[Export(typeof(IBaseDbRepository<CrdData, long>))]
-    //[ExportMetadata(nameof(eMefAttribute.exportedTpe), typeof(CrdData))]
-    //[ExportMetadata(nameof(eMefAttribute.repositoryType), Enums.eDomainSourceRepositoryType.SQL)]
+    [ExportMetadata(nameof(eMefAttribute.exportedTpe), typeof(CrdData))]
+    [ExportMetadata(nameof(eMefAttribute.repositoryType), Enums.eDomainSourceRepositoryType.SQL)]
     public class CrdDataRpository : IBaseDbRepository<CrdData, long>
     {
         public SqlConnection _StoreContext;

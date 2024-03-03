@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.34601.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRD API", "WebApplication1\CRD API.csproj", "{CFE5D0D9-6851-4AD1-8276-557E5EA7D1C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "giacom", "WebApplication1\giacom.csproj", "{CFE5D0D9-6851-4AD1-8276-557E5EA7D1C1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{E18D15AA-DBA9-4B37-9E39-D7B775BAEE13}"
 EndProject
@@ -37,8 +37,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{A61E2CD2-EA71-45AF-8A61-DA1F5B51CB33}"
 	ProjectSection(SolutionItems) = preProject
-		CRD.txt = CRD.txt
+		WebApplication1\giacom - Developer Technical Test.docx = WebApplication1\giacom - Developer Technical Test.docx
+		Read.me = Read.me
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Giacom-ImportData", "Giacom-ImportData\Giacom-ImportData.csproj", "{A83D9796-26E6-43D8-8C3B-7219EC6DF95A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{907E2E93-CCB5-422C-887B-A61A1EFCEDDB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -98,6 +103,10 @@ Global
 		{CDD11B05-46AA-4690-984A-505612174EAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDD11B05-46AA-4690-984A-505612174EAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDD11B05-46AA-4690-984A-505612174EAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A83D9796-26E6-43D8-8C3B-7219EC6DF95A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A83D9796-26E6-43D8-8C3B-7219EC6DF95A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A83D9796-26E6-43D8-8C3B-7219EC6DF95A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A83D9796-26E6-43D8-8C3B-7219EC6DF95A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -117,6 +126,7 @@ Global
 		{471BB92F-4CE1-4FCF-84F2-7DD900F0A964} = {F0DDC27F-A5D8-4E6A-8FCD-9A3408FF39E0}
 		{A097FB0C-2FD1-4FE8-9CFF-B49A9AE23A81} = {2427958A-2B8F-42C0-ABD8-2FF8E39E3C80}
 		{CDD11B05-46AA-4690-984A-505612174EAB} = {2427958A-2B8F-42C0-ABD8-2FF8E39E3C80}
+		{A83D9796-26E6-43D8-8C3B-7219EC6DF95A} = {FAEC9CE6-1DA8-4B28-900F-DB472713ACE6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4429840B-AFCD-47F6-83DE-EC2F5E6822BF}

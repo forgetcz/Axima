@@ -92,10 +92,8 @@
     <Compile Include="Configuration\XML\ApplicationKeysXml.cs" />
     <Compile Include="Configuration\JSON\ConnectionStringsJson.cs" />
     <Compile Include="Configuration\XML\ConnectionStringsXml.cs" />
-    <Compile Include="Data\Axima\MemoryRepository\ProviderRepository.cs" />
-    <Compile Include="Data\Axima\MemoryRepository\ActionDetailRepository.cs" />
-    <Compile Include="Data\Crd\SqlRepository\CrdDataRpository.cs" />
-    <Compile Include="Data\Crd\MemoryRepository\CrdDataRpository.cs" />
+    <Compile Include="Data\SqlRepository\CrdDataRpository.cs" />
+    <Compile Include="Data\MemoryRepository\CrdDataRpository.cs" />
     <Compile Include="Enums\eApplicationKeys.cs" />
     <Compile Include="Enums\eMefAttributes.cs" />
     <Compile Include="Enums\eSqlConnectionStrings.cs" />
@@ -103,8 +101,6 @@
     <Compile Include="Interfaces\IBaseRepository.cs" />
     <Compile Include="Interfaces\IConfigurationRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Data\Axima\SqlRepository\ActionDetailRepository.cs" />
-    <Compile Include="Data\Axima\SqlRepository\ProviderRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

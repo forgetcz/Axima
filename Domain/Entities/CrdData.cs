@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities.Crd
+namespace Domain.Entities
 {
     public class CrdData : BaseEntity<long>
     {

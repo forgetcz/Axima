@@ -1,25 +1,21 @@
 ﻿using Application.Composition;
 using Application.Interfaces;
-using Infrastrucure.Interfaces; 
+using Infrastrucure.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.ComponentModel.Composition.Hosting;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Configuration
 {
     /// <summary>
-    /// Full application configuration
+    /// Full application configuration, Current setting for Configuration is XML in .NET it will be JSON
     /// </summary>
     [Export(typeof(IAppConfiguration))]
     public class AppConfiguration : IAppConfiguration
     {
         /// <summary>
-        /// Definition of current config type (XML for old project (.NET Framework), JSON for .NET(old CORE))
+        /// Definition of current config type (XML for old project (.NET Framework), JSON for .NET)
         /// </summary>
         private Infrastrucure.Enums.eApplicationConfigurationRepositoryType appConfigType => Infrastrucure.Enums.eApplicationConfigurationRepositoryType.XML;
 
@@ -28,40 +24,44 @@ namespace Application.Configuration
         /// </summary>
         private static IEnumerable<Lazy<IConfigurationRepository, IAppConfigurationMefAttributes>> ProvidersPermanent { get; set; }
         
+        /// <summary>
+        /// List of all aviable Configuration providers
+        /// </summary>
         [ImportMany(typeof(IConfigurationRepository))]
         private IEnumerable<Lazy<IConfigurationRepository, IAppConfigurationMefAttributes>> Providers { get; set; }
 
         /// <summary>
         /// Double lock system for load data only for first time
         /// </summary>
-        private static object lockObject = new object();
+        private static object LockObject { get; set; } = new object();
 
         /// <summary>
-        /// Connection strings
+        /// Connection strings (connectionStrings section in config)
         /// </summary>
-        private IConfigurationRepository _connectionStrings;
+        private IConfigurationRepository _applicationConnectionStrings { get; set; }
+
         /// <summary>
-        /// Connection strings
+        /// Connection strings (connectionStrings section in config)
         /// </summary>
-        public IConfigurationRepository ConnectionStrings
+        public IConfigurationRepository ApplicationConnectionStrings
         {
             get
             {
-                if (_connectionStrings == null)
+                if (_applicationConnectionStrings == null)
                 {
-                    _connectionStrings = ProvidersPermanent.Single(w => w.Metadata.AppConfigType == appConfigType
+                    _applicationConnectionStrings = ProvidersPermanent.Single(w => w.Metadata.AppConfigType == appConfigType
                        && w.Metadata.AppConfigSection == Infrastrucure.Enums.eApplicationConfigurationRepositorySection.ConnectionStrings).Value;
                 }
-                return _connectionStrings;
+                return _applicationConnectionStrings;
             }
         }
 
         /// <summary>
-        /// Application Keys
+        /// Application Keys (appSettings section in config)
         /// </summary>
         private IConfigurationRepository _applicationKeys;
         /// <summary>
-        /// Application Keys
+        ///  Application Keys (appSettings section in config)
         /// </summary>
         public IConfigurationRepository ApplicationKeys
         {
@@ -77,18 +77,17 @@ namespace Application.Configuration
         }
 
         /// <summary>
-        /// Compose application in case it is not composed yet. Use double lock pattern for single composition
+        /// ctor -> Compose application in case it is not composed yet. Use double lock pattern for single composition
         /// </summary>
         public AppConfiguration()
         {
             if (ProvidersPermanent == null)
             {
-                lock (lockObject)
+                lock (LockObject)
                 {
                     if (ProvidersPermanent == null)
                     {
                         ComposeApplication.Container.SatisfyImportsOnce(this);
-                        ProvidersPermanent = Providers;
                         Providers.ToList().ForEach(fe =>
                         {
                             fe.Value.LoadApplicationSection();
@@ -96,11 +95,11 @@ namespace Application.Configuration
                         );
                         ProvidersPermanent = Providers;
                     }
-                    else
-                    {
-                        Providers = ProvidersPermanent;
-                    }
                 }
+            }
+            else
+            {
+                Providers = ProvidersPermanent;
             }
         }
     }

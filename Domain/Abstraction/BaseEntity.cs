@@ -12,7 +12,6 @@ namespace Domain.Abstraction
     /// <summary>
     /// Base (core) database entity definition
     /// </summary>
-    
     public abstract class BaseEntity<T> : IBaseEntity<T>
     {
         public T Id { get; set; }

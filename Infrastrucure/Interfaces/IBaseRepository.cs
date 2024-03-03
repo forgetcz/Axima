@@ -15,7 +15,6 @@ namespace Infrastrucure.Interfaces
     /// </summary>
     /// <typeparam name="T">Type of entity</typeparam>
     /// <typeparam name="K">Type of key in database</typeparam>
-    //[InheritedExport(typeof(IBaseDbRepository<,>))]
     public interface IBaseDbRepository<T, K> where T : BaseEntity<K>
     {
         Task<T> ReadById(K id);
@@ -26,7 +25,5 @@ namespace Infrastrucure.Interfaces
         Task<IEnumerable<T>> UpdateMany(IEnumerable<T> entities);
         Task<T> Delete(T entity);
         Task DeleteMany(IEnumerable<T> entities);
-
-
     }
 }

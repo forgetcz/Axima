@@ -12,7 +12,7 @@ namespace Application.Interfaces
     /// </summary>
     public interface IAppConfiguration
     {
-        IConfigurationRepository ConnectionStrings { get; }
+        IConfigurationRepository ApplicationConnectionStrings { get; }
         IConfigurationRepository ApplicationKeys { get; }
     }
 }
