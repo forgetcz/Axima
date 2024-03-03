@@ -13,7 +13,7 @@ namespace Domain.Interfaces
     /// </summary>
     /// <typeparam name="T">Type of entity</typeparam>
     /// <typeparam name="K">Type of key in database</typeparam>
-    public interface IBaseDbRepository<T, K> where T : BaseEntity
+    public interface IBaseDbRepository<T, K> where T : BaseEntity<K>
     {
         Task<T> ReadById(K id);
         Task<IEnumerable<T>> ReadAll();

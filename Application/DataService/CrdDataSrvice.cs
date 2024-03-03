@@ -15,7 +15,7 @@ namespace Application.Data
     /// </summary>
     /// 
     [Export(typeof(IDataService))]
-    public class CrdDataRepository : IDataService
+    public class ActionDetailRepository : IDataService
     {
         [Import(typeof(IAppConfiguration))]
         private IAppConfiguration AppConfig { get; set; }
@@ -25,21 +25,21 @@ namespace Application.Data
         /// </summary>
         private eDomainSourceRepositoryType CurrentType = eDomainSourceRepositoryType.Memory;
 
-        private static IEnumerable<Lazy<IBaseDbRepository<CrdData, long>, Dictionary<string, object>>> CdrPermanentRepositorys { get; set; }
+        private static IEnumerable<Lazy<IBaseDbRepository<ActionProvider, Guid>, Dictionary<string, object>>> ActionProviderPermanentRepositorys { get; set; }
 
         private static object lockObject = new object();
 
         /// <summary>
-        /// List of all requested implementation of CrdData repositoryes
+        /// List of all requested implementation of AcrtionProvider repositoryes
         /// </summary>
         [ImportMany(typeof(IBaseDbRepository<,>))]
-        private IEnumerable<Lazy<IBaseDbRepository<CrdData, long>, Dictionary<string, object>>> CrdRepositorys { get; set; }
+        private IEnumerable<Lazy<IBaseDbRepository<ActionProvider, Guid>, Dictionary<string, object>>> actionProviderRepositorys { get; set; }
 
-        [Export(typeof(IBaseDbRepository<CrdData, long>))]
-        public IBaseDbRepository<CrdData, long> GetCrdDataRpository()
+        [Export(typeof(IBaseDbRepository<ActionProvider, Guid>))]
+        public IBaseDbRepository<ActionProvider, Guid> GetActionDetailRpository()
         {
-            IBaseDbRepository<CrdData, long> res = null;
-            var crd = CrdRepositorys.ToList();
+            IBaseDbRepository<ActionProvider, Guid> res = null;
+            var crd = actionProviderRepositorys.ToList();
             crd.ForEach(f =>
             {
                 if (f.Metadata.ContainsKey(nameof(eMefAttribute.repositoryType)))
@@ -71,22 +71,22 @@ namespace Application.Data
         /// <summary>
         /// Compose application in case it is not composed yet. Use double lock pattern for single creation
         /// </summary>
-        public CrdDataRepository()
+        public ActionDetailRepository()
         {
-            if (CdrPermanentRepositorys == null)
+            if (ActionProviderPermanentRepositorys == null)
             {
                 lock (lockObject)
                 {
-                    if (CdrPermanentRepositorys == null)
+                    if (ActionProviderPermanentRepositorys == null)
                     {
                         ComposeConfiguraion();
-                        CdrPermanentRepositorys = CrdRepositorys;
+                        ActionProviderPermanentRepositorys = actionProviderRepositorys;
                     }
                 }
             }
             else
             {
-                CrdRepositorys = CdrPermanentRepositorys;
+                actionProviderRepositorys = ActionProviderPermanentRepositorys;
             }
         }
     }

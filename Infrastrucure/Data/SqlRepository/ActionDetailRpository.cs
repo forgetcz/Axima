@@ -9,56 +9,56 @@ using System.Threading.Tasks;
 
 namespace Infrastrucure.Data.SqlRepository
 {
-    //[Export(typeof(IBaseDbRepository<CrdData, long>))]
-    [ExportMetadata(nameof(eMefAttribute.exportedTpe), typeof(CrdData))]
+    //[Export(typeof(IBaseDbRepository<ActionDetail, long>))]
+    [ExportMetadata(nameof(eMefAttribute.exportedTpe), typeof(ActionDetail))]
     [ExportMetadata(nameof(eMefAttribute.repositoryType), Enums.eDomainSourceRepositoryType.SQL)]
-    public class CrdDataRpository : IBaseDbRepository<CrdData, long>
+    public class ActionDetailRpository : IBaseDbRepository<ActionDetail, Guid>
     {
         public SqlConnection _StoreContext;
 
         [ImportingConstructor]
 
-        public CrdDataRpository([Import("connectionString")] string connectionString)
+        public ActionDetailRpository([Import("connectionString")] string connectionString)
         {
             _StoreContext = new SqlConnection(connectionString);
         }
 
-        public Task<CrdData> Delete(CrdData entity)
+        public Task<ActionDetail> Delete(ActionDetail entity)
         {
             throw new NotImplementedException();
         }
 
-        public Task DeleteMany(IEnumerable<CrdData> entities)
+        public Task DeleteMany(IEnumerable<ActionDetail> entities)
         {
             throw new NotImplementedException();
         }
 
-        public Task<CrdData> Insert(CrdData entity)
+        public Task<ActionDetail> Insert(ActionDetail entity)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<CrdData>> InsertMany(IEnumerable<CrdData> entities)
+        public Task<IEnumerable<ActionDetail>> InsertMany(IEnumerable<ActionDetail> entities)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<CrdData>> ReadAll()
+        public Task<IEnumerable<ActionDetail>> ReadAll()
         {
             throw new NotImplementedException();
         }
 
-        public Task<CrdData> ReadById(long id)
+        public Task<ActionDetail> ReadById(long id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<CrdData> Update(CrdData entity)
+        public Task<ActionDetail> Update(ActionDetail entity)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<CrdData>> UpdateMany(IEnumerable<CrdData> entities)
+        public Task<IEnumerable<ActionDetail>> UpdateMany(IEnumerable<ActionDetail> entities)
         {
             throw new NotImplementedException();
         }

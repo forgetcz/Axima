@@ -85,7 +85,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\CrdData.cs" />
+    <Compile Include="Entities\ActionProvider.cs" />
+    <Compile Include="Entities\ActionDetail.cs" />
+    <Compile Include="Interfaces\IBaseDbRepository.cs" />
     <Compile Include="Interfaces\IBaseEntity.cs" />
     <Compile Include="Abstraction\BaseEntity.cs" />
     <Compile Include="Enums\ProviderType.cs" />

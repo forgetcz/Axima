@@ -13,8 +13,6 @@ namespace WebApplication1.Controllers
 {
     public class HomeController : AsyncController
     {
-        //CrdDataRepository dataRepository = new CrdDataRepository();
-        
         [Import(typeof(IDataService))]
         public IDataService dataRepository { get; set; }
         

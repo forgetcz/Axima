@@ -92,8 +92,8 @@
     <Compile Include="Configuration\XML\ApplicationKeysXml.cs" />
     <Compile Include="Configuration\JSON\ConnectionStringsJson.cs" />
     <Compile Include="Configuration\XML\ConnectionStringsXml.cs" />
-    <Compile Include="Data\SqlRepository\CrdDataRpository.cs" />
-    <Compile Include="Data\MemoryRepository\CrdDataRpository.cs" />
+    <Compile Include="Data\SqlRepository\ActionDetailRpository.cs" />
+    <Compile Include="Data\MemoryRepository\ActionDetailRpository.cs" />
     <Compile Include="Enums\eApplicationKeys.cs" />
     <Compile Include="Enums\eMefAttributes.cs" />
     <Compile Include="Enums\eSqlConnectionStrings.cs" />

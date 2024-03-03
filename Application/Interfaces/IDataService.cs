@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 namespace Application.Interfaces
 {
     /// <summary>
-    /// Definition of CrdData
+    /// Definition of ActionDetail
     /// </summary>
     public interface IDataService
     {
-        IBaseDbRepository<CrdData, long> GetCrdDataRpository();
+        IBaseDbRepository<ActionProvider, Guid> GetActionDetailRpository();
     }
 }
