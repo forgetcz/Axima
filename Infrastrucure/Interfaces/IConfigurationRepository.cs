@@ -16,7 +16,7 @@ namespace Infrastrucure.Interfaces
         /// </summary>
         void LoadApplicationSection();
 
-        /// <summary>B
+        /// <summary>
         /// Return value from config section 
         /// </summary>
         /// <param name="key"></param>

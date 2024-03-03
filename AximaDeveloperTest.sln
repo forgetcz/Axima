@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.34601.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ÄximaApi", "WebApplication1\ÄximaApi.csproj", "{CFE5D0D9-6851-4AD1-8276-557E5EA7D1C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AximaApi", "WebApplication1\AximaApi.csproj", "{CFE5D0D9-6851-4AD1-8276-557E5EA7D1C1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{E18D15AA-DBA9-4B37-9E39-D7B775BAEE13}"
 EndProject
