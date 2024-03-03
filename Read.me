@@ -1,4 +1,46 @@
-Data import 
-	- Data delivery will be throuhg FTP server by upload data
-	- Import data to database Is solved in WinService - we expect large amount of data (gigabytes), this will be very long process which is impossible to solve be WebAPI
-Interactiion with other - is solved by WebApi - ResetQueries
+Struèné zadání:
+Co má umìt webová stránka:
+- Vstupenkový agregátor, webová stránka, na které budou vyhledatelné všechny akce v ÈR, na které se prodávají vstupenky pøes nejrozšíøenìjší ticketing služby
+- Katalog akcí s proklikem na konkrétní web ticketing partnera
+- Neøešíme samotný prodej vstupenek –> z detailu vybrané akce pošleme návštìvníka pøímo na web ticketing partnera
+
+Cílem webu:
+- Poskytnout návštìvníkovi jedno místo, kde si mùže jednoduše vybrat akci, která jej zajímá. Nakupovat bude u zdroje. Budujeme rozcestník akcí, na které lze zakoupit vstupenky.
+
+
+Backend:
+- zdroje dat - informace o akcích získáme od ticketing partnerù
+- rùzná struktura dat od každého ticketing partnera (ticketportal, ticketstream, colosseum, goout, ticketmaster, xticket, tootoot.fm, …)
+- poèet ticketing partnerù zhruba 15
+- data pøes jednotlivá API partnerù, v pøípadì nutnosti parsovat web
+- aktualizace dat každých 12 hodin?
+- jednoduchý redakèní systém pro správu akcí
+- jak pracovat s duplicitními záznamy? (akce se prodává u více ticketing partnerù) -> sjednotit pod jednu akci -> odkazy na všechny ticketing partnery?
+- postupné pøidávání funkcí, jako - TOP akce na HP apod.
+- možnost pøidání akce zcela manuálnì (ne všechny akce nám pùjdou naèíst automaticky z ticketing zdrojù)
+
+- postavit strukturu dat pro jejich vyhledávání koncovým uživatelem
+- struktura detailu akce napø:
+	hlavní obrázek + další obrázky
+	název akce
+	termín
+	místo konání
+	popis akce
+	detailní popis
+	vystupující
+	druh akce, žánr akce
+- dùraz na nejlepší pozici ve vyhledávaèích
+- struktura webu: HP + vyhledávání, detail akce
+- nejdùležitìjší je skvìlé vyhledávání akcí na webu
+
+Frontend:
+- celý frontend budeme øešit dodavatelsky, až na základì našeho vytvoøeného backend enginu
+
+Dotazy na vývojáøe:
+- na jakých technologiích bude backend postaven a proè?
+- jak vyøešíte vyhledávání akcí
+- jaký bude postup realizace?
+- odhad poètu hodin (s vìdomím, že je to velmi spekulativní disciplína)
+
+
+Ještì jednou díky za váš èas a budeme se tìšit na odpovìï. Samozøejmì jsem tu pro vás v pøípadì jakýchkoliv doplòujících dotazù.
