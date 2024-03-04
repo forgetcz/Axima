@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.34601.136
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34607.79
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AximaApi", "WebApplication1\AximaApi.csproj", "{CFE5D0D9-6851-4AD1-8276-557E5EA7D1C1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{E18D15AA-DBA9-4B37-9E39-D7B775BAEE13}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{D791FF81-A9C4-4E84-B57E-63B21584DAAB}"
@@ -45,10 +43,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CFE5D0D9-6851-4AD1-8276-557E5EA7D1C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CFE5D0D9-6851-4AD1-8276-557E5EA7D1C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CFE5D0D9-6851-4AD1-8276-557E5EA7D1C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CFE5D0D9-6851-4AD1-8276-557E5EA7D1C1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E18D15AA-DBA9-4B37-9E39-D7B775BAEE13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E18D15AA-DBA9-4B37-9E39-D7B775BAEE13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E18D15AA-DBA9-4B37-9E39-D7B775BAEE13}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -102,7 +96,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{CFE5D0D9-6851-4AD1-8276-557E5EA7D1C1} = {FAEC9CE6-1DA8-4B28-900F-DB472713ACE6}
 		{E18D15AA-DBA9-4B37-9E39-D7B775BAEE13} = {FAEC9CE6-1DA8-4B28-900F-DB472713ACE6}
 		{D791FF81-A9C4-4E84-B57E-63B21584DAAB} = {FAEC9CE6-1DA8-4B28-900F-DB472713ACE6}
 		{764CEF32-03BE-41DB-9DB7-80387A9A5B76} = {FAEC9CE6-1DA8-4B28-900F-DB472713ACE6}
